@@ -1,18 +1,18 @@
 # Site settings
-title: BY Blog
-SEOTitle: 柏荧的博客 | BY Blog
-header-img: img/post-bg-desk.jpg
-email: qiubaiying@gmail.com
-description: "Every failure is leading towards success."
-keyword: "BY, BY Blog, 柏荧的博客, qiubaiying, 邱柏荧, iOS, Apple, iPhone"
-url: "http://qiubaiying.github.io"          # your host, for absolute URL
+title: Walker Blog
+SEOTitle: YF的博客 | Walker Blog
+header-img: img/walker_index.jpg
+email: sdtzwyf@163.com
+description: "跨过那站着的前人."
+keyword: "Robot,RL,AUV,Quad"
+url: "http://yifei632.github.io"          # your host, for absolute URL
 baseurl: ""      # for example, '/blog' if your blog hosted on 'host/blog'
-github_repo: "https://github.com/qiubaiying/qiubaiying.github.io.git" # you code repository
+github_repo: "https://github.com/YiFei632/YiFei632.github.io.git" # you code repository
 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
-sidebar-about-description: "Goals determine what you going to be!"
-sidebar-avatar: /img/about-BY-gentle.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
+sidebar-about-description: "海游舟可渡，山有路可行。山海皆可平，难平是人心。"
+sidebar-avatar: /img/walker-gentle.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
 
