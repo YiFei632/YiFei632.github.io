@@ -1,21 +1,20 @@
 
 
-![](https://raw.githubusercontent.com/qiubaiying/qiubaiying.github.io/master/img/readme-home.png)
+![](https://raw.githubusercontent.com/YiFei632/YiFei632.github.io/master/img/readme_index.png)
 
-[![Build Status](https://travis-ci.org/qiubaiying/qiubaiying.github.io.svg?branch=master)](https://travis-ci.org/qiubaiying/qiubaiying.github.io)
-[![codebeat badge](https://codebeat.co/badges/5f031df3-f6c1-4ec0-911a-ff6617ca50b9)](https://codebeat.co/projects/github-com-qiubaiying-qiubaiying-github-io-master)
-[![GitHub issues](https://img.shields.io/github/issues/qiubaiying/qiubaiying.github.io.svg?style=flat)](https://github.com/qiubaiying/qiubaiying.github.io/issues)
+[![Build Status](https://travis-ci.org/YiFei632/YiFei632.github.io.svg?branch=master)](https://github.com/YiFei632/YiFei632.github.io)
+[![GitHub issues](https://img.shields.io/github/issues/YiFei632/YiFei632.github.io.svg?style=flat)](https://github.com/YiFei632/YiFei632.github.io/issues)
 [![License MIT](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/home-assistant/home-assistant-iOS/blob/master/LICENSE)
-[![](https://img.shields.io/github/stars/qiubaiying/qiubaiying.github.io.svg?style=social&label=Star)](https://github.com/qiubaiying/qiubaiying.github.io)
-[![](https://img.shields.io/github/forks/qiubaiying/qiubaiying.github.io.svg?style=social&label=Fork)](https://github.com/qiubaiying/qiubaiying.github.io)
+[![](https://img.shields.io/github/stars/YiFei632/YiFei632.github.io.svg?style=social&label=Star)](https://github.com/YiFei632/YiFei632.github.io)
+[![](https://img.shields.io/github/forks/YiFei632/YiFei632.github.io.svg?style=social&label=Fork)](https://github.com/YiFei632/YiFei632.github.io)
 
 
-博客的搭建教程修改自 [Hux](https://github.com/Huxpro/huxpro.github.io) 
+博客的搭建教程修改自 [BY](https://github.com/qiubaiying/qiubaiying.github.io) 
  
-更为详细的教程戳这 [《利用 GitHub Pages 快速搭建个人博客》](http://www.jianshu.com/p/e68fba58f75c) 或 [wiki](https://github.com/qiubaiying/qiubaiying.github.io/wiki/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B)
+更为详细的教程戳这 [《快速搭建个人博客》](https://qiubaiying.github.io/2017/02/06/%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/) 或 [wiki](https://github.com/qiubaiying/qiubaiying.github.io/wiki/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B)
 
 >
-### [查看博客戳这里 👆](http://qiubaiying.github.io)
+### [查看博客戳这里 👆](http://YiFei632.github.io)
 
 
 
@@ -53,13 +52,13 @@
 
 ```
 # Site settings
-title: BY Blog                    # 你的博客网站标题
-SEOTitle: 柏荧的博客 | BY Blog		# SEO 标题
+title: YF Blog                    # 你的博客网站标题
+SEOTitle: Walker的博客 | YF Blog		# SEO 标题
 description: "Hey"	   	   # 随便说点，描述一下
 
 # SNS settings      
-github_username: qiubaiying     # 你的github账号
-jianshu_username: e71990ada2fd  # 你的简书ID。
+github_username: YiFei632     # 你的github账号
+csdn_username: weixin_52428306  # 你的CSDN ID。
 
 # Build settings
 # paginate: 10              # 一页你准备放几篇文章
@@ -76,15 +75,12 @@ yaml 头文件长这样:
 ```
 ---
 layout:     post
-title:      定时器 你真的会使用吗？
-subtitle:   iOS定时器详解
-date:       2016-12-13
-author:     BY
-header-img: img/post-bg-ios9-web.jpg
+title:      我的 QZone 第一天
+subtitle:   欢迎来听听 YiFei 的碎碎念
+date:       2024-03-19
+author:     YF
+header-img: img/post_my_first_day.jpg
 catalog: 	 true
-tags:
-    - iOS
-    - 定时器
 ---
 
 ```
@@ -92,7 +88,7 @@ tags:
 ### 侧边栏
 
 看右边:
-![](https://raw.githubusercontent.com/qiubaiying/qiubaiying.github.io/master/img/readme-side.png)
+![](https://raw.githubusercontent.com/YiFei632/YiFei632.github.io/master/img/readme_slide.png)
 
 设置是在 `_config.yml`文件里面的`Sidebar settings`那块。
 
@@ -100,7 +96,7 @@ tags:
 # Sidebar settings
 sidebar: true  #添加侧边栏
 sidebar-about-description: "简单的描述一下你自己"
-sidebar-avatar: /img/avatar-by.jpg     #你的大头贴，请使用绝对地址.注意：名字区分大小写！后缀名也是
+sidebar-avatar: /img/walker-gentle.jpg     #你的大头贴，请使用绝对地址.注意：名字区分大小写！后缀名也是
 ```
 
 侧边栏是响应式布局的，当屏幕尺寸小于992px的时候，侧边栏就会移动到底部。具体请见bootstrap栅格系统 <http://v3.bootcss.com/css/>
@@ -127,19 +123,17 @@ featured-condition-size: 1     # A tag will be featured if the size of it is mor
 
 ### Social-media Account
 
-在下面输入的社交账号，没有的添加的不会显示在侧边框中。新加入了[简书](https:/www.jianshu.com)链接, <http://www.jianshu.com/u/e71990ada2fd>
+在下面输入的社交账号，没有的添加的不会显示在侧边框中。新加入了[CSDN](https://www.csdn.net/)链接, <https://blog.csdn.net/weixin_52428306>
 
 	# SNS settings
 	RSS: false
-	jianshu_username: 	jianshu_id 
+	CSDN_username: 	CSDN_id 
 	zhihu_username:     username
 	facebook_username:  username
 	github_username:    username
 	# weibo_username:   username
 	
-	
 
-![](http://ww4.sinaimg.cn/large/006tKfTcgy1fgrgbgf77aj308i02v748.jpg)
 
 ### Friends
 
@@ -151,12 +145,17 @@ featured-condition-size: 1     # A tag will be featured if the size of it is mor
 # Friends
 friends: [
     {
-        title: "BY Blog",
-        href: "https://qiubaiying.github.io/"
-    },
-    {
-        title: "Apple",
-        href: "https://apple.com/"
+        title: "Google",
+        href: "https://www.google.com/"
+    },{
+        title: "CSDN·Walker",
+        href: "https://blog.csdn.net/weixin_52428306"
+    },{
+        title: "世界一流大学",
+        href: "https://www.pku.edu.cn/"
+    },{
+        title: "YouTube",
+        href: "https://www.youtube.com/"
     }
 ]
 ```
@@ -166,7 +165,7 @@ friends: [
 
 HTML5幻灯片的排版：
 
-![](https://camo.githubusercontent.com/f30347a118171820b46befdf77e7b7c53a5641a9/687474703a2f2f6875616e677875616e2e6d652f696d672f626c6f672d6b65796e6f74652e6a7067)
+![](https://raw.githubusercontent.com/YiFei632/YiFei632.github.io/master/img/readme_html5.png)
 
 这部分是用于占用html格式的幻灯片的，一般用到的是 Reveal.js, Impress.js, Slides, Prezi 等等.我认为一个现代化的博客怎么能少了放html幻灯的功能呢~
 
@@ -205,6 +204,7 @@ iframe在不同的设备中，将会自动的调整大小。保留内边距是�
 # Disqus（https://disqus.com/）
 disqus_username: qiubaiying
 ```
+**声明**：本网站目前已经全面启用Gitalk评论。
 
 #### Gitalk
 
@@ -214,7 +214,7 @@ disqus_username: qiubaiying
 
 **使用：**
 
-参考我的这篇文章：[《为博客添加 Gitalk 评论插件》](http://qiubaiying.top/2017/12/19/%E4%B8%BA%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0-Gitalk-%E8%AF%84%E8%AE%BA%E6%8F%92%E4%BB%B6/)
+参考这篇文章：[《为博客添加 Gitalk 评论插件》](https://yifei632.github.io/2017/12/19/%E4%B8%BA%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0-Gitalk-%E8%AF%84%E8%AE%BA%E6%8F%92%E4%BB%B6/)
 
 
 ### Analytics
@@ -273,10 +273,10 @@ ga_domain: huangxuan.me			# 默认的是 auto, 这里我是自定义了的域名
 
 ## 致谢
 
-1. 这个模板是从这里 [Hux](https://github.com/Huxpro/huxpro.github.io) fork 的, 感谢这个作者。 
+1. 这个模板是基于这里 [BY](https://github.com/qiubaiying/qiubaiying.github.io) 搭建的, 感谢这个作者。 
 2. 感谢 Jekyll、Github Pages 和 Bootstrap!
 
 ## License
 
-遵循 MIT 许可证。有关详细,请参阅 [LICENSE](https://github.com/qiubaiying/qiubaiying.github.io/blob/master/LICENSE)。
+遵循 MIT 许可证。有关详细,请参阅 [LICENSE](https://github.com/YiFei632/YiFei632.github.io/blob/master/LICENSE)。
 
