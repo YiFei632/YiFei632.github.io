@@ -157,3 +157,23 @@ span.highlight {
     display: inline-block;
     border-radius: 10px;
 }
+
+.avatar-container {
+  position: relative;
+  display: inline-block;
+  width: 100%; /* 或固定宽度如 250px */
+  max-width: 100%;
+}
+.avatar-normal, .avatar-hover {
+  width: 100%;
+  transition: opacity 0.4s ease-in-out;
+}
+.avatar-hover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0; /* 默认隐藏 */
+}
+.avatar-container:hover .avatar-hover {
+  opacity: 1; /* 鼠标悬停时显示 */
+}
