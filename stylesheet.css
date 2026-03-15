@@ -161,8 +161,8 @@ span.highlight {
 .avatar-container {
   position: relative;
   display: inline-block;
-  width: 250px; /* 或固定宽度如 250px */
-  max-width: 250px;
+  width: 100px; /* 或固定宽度如 250px */
+  max-width: 100px;
 }
 .avatar-normal, .avatar-hover {
   width: 250px;
