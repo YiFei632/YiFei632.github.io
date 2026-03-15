@@ -1,0 +1,485 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3Y11HDNJTQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-3Y11HDNJTQ');
+</script>
+<script src="utils.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <title>Zhihao Wang</title>
+
+    <meta name="author" content="zh1hao wang">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="./images/favicon_tpu/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    
+  </head>
+
+  <body>
+    <table style="width:100%;max-width:880px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+      <tr style="padding:0px">
+        <td style="padding:0px">
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+            <tr style="padding:0px">
+              <td style="padding:2.5%;width:75%;vertical-align:middle">
+                <p class="name" style="text-align: center;">
+                  Zh1hao Wang
+                </p>
+                <p>I am currently a first-year master's student at the College of Engineering (<a href="https://en.coe.pku.edu.cn/">CoE</a>), Peking University, advised by Professor <a href="https://ieeexplore.ieee.org/author/37278401500">Junzhi Yu</a> (IEEE Fellow).</p>
+                <p>I am also a research intern at the Institute for AI Research (<a href="https://air.tsinghua.edu.cn/en/index.htm">AIR</a>), Tsinghua University, advised by Professor <a href="https://zhanxianyuan.xyz/">Xianyuan Zhan</a>.</p>
+                <p>Prior to that, I earned my B.Eng. degree in Intelligent Automotive Engineering from the Harbin Institute of Technology (<a href="http://en.hit.edu.cn/">HIT</a>).</p>
+                <p>My research interests focus on Embodied Intelligence, including VLA, VLM, Embodied Agents, and related areas.</p>
+                <p style="text-align:center">
+                  <a href="mailto:zh1haowang@stu.pku.edu.cn">Email</a> &nbsp;/&nbsp;
+                  <a href="images/cv.pdf">CV</a> &nbsp;/&nbsp;
+                  <a href="https://scholar.google.com/citations?hl=zh-CN&user=R-DSH0kAAAAJ">Scholar</a> &nbsp;/&nbsp;
+                  <a href="https://github.com/255isWhite">Github</a> &nbsp;/&nbsp;
+                  <a href="images/wechat.JPG">Wechat</a> &nbsp;/&nbsp;
+                  <a href="https://www.zhihu.com/people/xuan-xu-71-21">Zhihu</a>
+                </p>
+              </td>
+              <td style="padding:2.5%;width:30%;max-width:40%">
+                <a href="images/zh1haowang.jpg"><img style="width:100%;max-width:100%;object-fit: cover; border-radius: 0%;" alt="profile photo" src="images/zh1haowang.jpg" class="hoverZoomLink"></a>
+              </td>
+            </tr>
+          </tbody></table>
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+            <tr>
+            <td style="padding:20px;width:100%;vertical-align:middle">
+              <h2>News</h2>
+              <p>
+                <ul>
+                  <li style="list-style-position:inside;margin:0;padding:0;text-align:left;">05/2025: Our paper <b>LBP (Latent space Backward Planning)</b> has been accepted by <b>ICML 2025</b>!</li>
+                  <li style="list-style-position:inside;margin:0;padding:0;text-align:left;">04/2025: Our paper <b>Novel ViDAR with RL-based Active SLAM</b> has been accepted by <b>TII 2025</b>!</li>
+                  <li style="list-style-position:inside;margin:0;padding:0;text-align:left;">02/2025: Our paper <b>UniAct</b> has been accepted by <b>CVPR 2025</b>!</li>
+                  <li style="list-style-position:inside;margin:0;padding:0;text-align:left;">01/2025: Our paper <b>Robo_MUTUAL</b> has been accepted by <b>ICRA 2025</b>!</li>
+                </ul>
+              </p>
+            </td>
+          </tr>
+          </tbody></table>
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+              <tr>
+              <td style="padding:20px;width:100%;vertical-align:middle">
+                <h2>Research</h2>
+                <p>
+                  My long-term goal is building the <u><b><i>BRIDGE</i></b></u> between AI and the physical world.
+                </p>
+              </td>
+            </tr>
+          </tbody></table>
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+
+         <tr onmouseout="agent_stop()" onmouseover="agent_start()">
+            <td style="padding:16px;width:20%;vertical-align:middle">
+              <div class="one" id='agent'>
+                <div class="two" id='agent_image'>
+                  <video width="160" height="160" muted autoplay loop style="object-fit: cover;">
+                      <source src="images/agent/logo.mp4" type="video/mp4">
+                      Your browser does not support the video tag.
+                  </video>
+                  <script>
+                    // 获取视频元素
+                    const video_agent = document.querySelector('#agent video');
+                
+                    // 设置播放速度为十倍速
+                    video_agent.playbackRate = 10;
+                  </script>
+              </div>
+              <img src='images/agent/logo.png' width="160">
+              </div>
+              <script type="text/javascript">
+                function agent_start() {
+                    document.getElementById('agent_image').style.opacity = "1";
+                }
+
+                function agent_stop() {
+                    document.getElementById('agent_image').style.opacity = "0";
+                }
+                agent_stop()
+            </script>
+            </td>
+            <td style="padding:8px;width:80%;vertical-align:middle">
+            <span class="papertitle">PhysiAgent: An Embodied Agent Framework in Physical World</span>
+              <p class="authors">me*, Jianxiong Li*, Jinliang Zheng*, Wencong Zhang, Dongxiu Liu, Yinan Zheng, Haoyi Niu, Junzhi Yu, Xianyuan Zhan</p>
+              <em>New In ML at ICML</em>, 2025
+              <br>
+              <a href="https://arxiv.org/abs/2509.24524">arXiv</a>
+              <p></p>
+              <p>
+              An autonomous scaffolding framework to seamlessly integrate VLA and VLM into real-world embodied agents.
+              </p>
+            </td>
+          </tr>
+
+          <tr onmouseout="lbp_stop()" onmouseover="lbp_start()">
+            <td style="padding:16px;width:20%;vertical-align:middle">
+              <div class="one" id='lbp'>
+                <div class="two" id='lbp_image'>
+                  <video width="160" height="160" muted autoplay loop style="object-fit: cover;">
+                      <source src="images/lbp/logo.mp4" type="video/mp4">
+                      Your browser does not support the video tag.
+                  </video>
+                  <script>
+                    // 获取视频元素
+                    const video_lbp = document.querySelector('#lbp video');
+                
+                    // 设置播放速度为十倍速
+                    video_lbp.playbackRate = 10;
+                  </script>
+              </div>
+              <img src='images/lbp/logo.jpg' width="160">
+              </div>
+              <script type="text/javascript">
+                function lbp_start() {
+                    document.getElementById('lbp_image').style.opacity = "1";
+                }
+            
+                function lbp_stop() {
+                    document.getElementById('lbp_image').style.opacity = "0";
+                }
+                lbp_stop()
+            </script>
+            </td>
+            <td style="padding:8px;width:80%;vertical-align:middle">
+            <span class="papertitle">Efficient Robotic Policy Learning via Latent Space Backward Planning</span>
+              <br>
+              <a href="https://openreview.net/profile?id=~Dongxiu_Liu2">Dongxiu Liu</a>*, 
+              <a href="https://t6-thu.github.io/">Haoyi Niu</a>*, 
+              <strong>Zh1hao Wang</strong>,
+              <a href="https://scholar.google.com/citations?user=3j5AHFsAAAAJ&hl=zh-CN">Jinliang Zheng</a>,
+              <a href="https://scholar.google.com/citations?user=mHXjEbQAAAAJ&hl=zh-CN">Yinan Zheng</a>,
+              <a href="https://teacher.bupt.edu.cn/ouzhonghong/en/index.htm">Zhonghong Ou</a>, 
+              <a href="https://scholar.google.com/citations?user=OD-QFQQAAAAJ&hl=en">Jianming HU</a>,
+              <a href="https://scholar.google.com/citations?user=TRLwpiUAAAAJ&hl=zh-CN">Jianxiong Li</a>,
+              <a href="https://zhanxianyuan.xyz/">Xianyuan Zhan</a>
+              <br>
+              <em>ICML</em>, 2025
+              <br>
+              <em>ICLR Workshop on Robot Learning</em>, 2025
+              <br>
+              <a href="https://lbp-authors.github.io/">project page</a>
+              /
+              <a href="https://arxiv.org/abs/2505.06861">arXiv</a>
+              <p></p>
+              <p>
+              A lightweight visuomotor policy controls robots with <u>latent</u>, <u>backward</u>, <u>recursive</u> subgoals.
+              </p>
+            </td>
+          </tr>
+
+          <tr onmouseout="vidar_stop()" onmouseover="vidar_start()">
+            <td style="padding:16px;width:20%;vertical-align:middle">
+              <div class="one">
+                <div class="two" id='vidar_image'>
+                  <video width="160" height="160" muted autoplay loop style="object-fit: cover;">
+                      <source src="images/vidar/logo.mp4" type="video/mp4">
+                      Your browser does not support the video tag.
+                  </video>
+                  <script>
+                    // 获取视频元素
+                    const video_vidar = document.querySelector('#vidar_image video');
+
+                    // 设置播放速度为三倍速
+                    video_vidar.playbackRate = 1.5;
+
+                </script>
+              </div>
+              <img src='images/vidar/logo.png' width="160">
+              </div>
+                <script type="text/javascript">
+                  function vidar_start() {
+                      document.getElementById('vidar_image').style.opacity = "1";
+                  }
+
+                  function vidar_stop() {
+                      document.getElementById('vidar_image').style.opacity = "0";
+                  }
+                  vidar_stop()
+              </script>
+            </td>
+            <td style="padding:8px;width:80%;vertical-align:middle">
+            <span class="papertitle">A Novel ViDAR Device With Visual Inertial Encoder Odometry and Reinforcement Learning-Based Active SLAM Method</span>
+              <br>
+              <a href="https://ieeexplore.ieee.org/author/37089550574">Zhanhua Xin</a>, 
+              <strong>Zh1hao Wang</strong>, 
+              <a href="https://ieeexplore.ieee.org/author/37088400646">Shenghao Zhang</a>, 
+              <a href="https://ieeexplore.ieee.org/author/37088401669">Wanchao Chi</a>, 
+              <a href="https://scholar.google.com/citations?user=dQc4qhsAAAAJ&hl=zh-CN">Yan Meng</a>, 
+              <a href="https://scholar.google.com.hk/citations?user=Rucrm6EAAAAJ&hl=zh-CN">Shihan Kong</a>, 
+              <a href="https://ieeexplore.ieee.org/author/395377228084533">Yan Xiong</a>, 
+              <a href="https://ieeexplore.ieee.org/author/37088689969">Chong Zhang</a>, 
+              <a href="https://ieeexplore.ieee.org/author/37086560116">Yuzhen Liu</a>, 
+              <a href="https://scholar.google.com/citations?user=Gudfky4AAAAJ&hl=zh-CN">Junzhi Yu</a>
+              <br>
+              <em>TII, IEEE Transactions on Industrial Informatics</em>, 2025
+              <br>
+              <a href="https://arxiv.org/abs/2506.13100">arXiv</a>
+              <p></p>
+              <p>
+              A novel <u>ViDAR</u> device with <u>reinforcement learning-based active SLAM</u> method.
+              </p>
+            </td>
+          </tr>
+
+          <tr onmouseout="uniact_stop()" onmouseover="uniact_start()">
+            <td style="padding:16px;width:20%;vertical-align:middle">
+              <div class="one">
+                <div class="two" id='uniact_image'>
+                <img src="images/uniact/logo.gif" width="160" height="160" style="object-fit: cover;">
+                <script type="text/javascript">
+                    function uniact_start() {
+                        document.getElementById('uniact_image').style.opacity = "1";
+                    }
+                
+                    function uniact_stop() {
+                        document.getElementById('uniact_image').style.opacity = "0";
+                    }
+                    uniact_stop()
+                </script>
+                </div>
+                <img src='images/uniact/logo.png' width="160">
+              </div>
+            </td>
+            <td style="padding:8px;width:80%;vertical-align:middle">
+            <span class="papertitle">UniAct: Universal Actions for Enhanced Embodied Foundation Models</span>
+              <br>
+              <a href="https://scholar.google.com/citations?user=3j5AHFsAAAAJ&hl=zh-CN">Jinliang Zheng</a>*, 
+              <a href="https://scholar.google.com/citations?user=TRLwpiUAAAAJ&hl=zh-CN">Jianxiong Li</a>*, 
+              <a href="https://openreview.net/profile?id=~Dongxiu_Liu2">Dongxiu Liu</a>*, 
+              <a href="https://scholar.google.com/citations?user=mHXjEbQAAAAJ&hl=zh-CN">Yinan Zheng</a>, 
+              <strong>Zh1hao Wang</strong>, 
+              <a href="https://teacher.bupt.edu.cn/ouzhonghong/en/index.htm">Zhonghong Ou</a>, 
+              <a href="https://liuyu.us/">Yu Liu</a>, 
+              <a href="https://air.tsinghua.edu.cn/en/info/1046/1194.htm">Jingjing Liu</a>, 
+              <a href="https://air.tsinghua.edu.cn/en/info/1046/1188.htm">Ya-Qin Zhang</a>, 
+              <a href="https://zhanxianyuan.xyz/">Xianyuan Zhan</a>
+              <br>
+              <em>CVPR</em>, 2025
+              <br>
+              <em>ICLR Workshop on Robot Learning</em>, 2025
+              <br>
+              <a href="https://2toinf.github.io/UniAct/">project page</a>
+              /
+              <a href="https://arxiv.org/abs/2501.10105">arXiv</a>
+              <p></p>
+              <p>
+              A new embodied foundation modeling framework operating in the <u>Universal Action Space</u>.
+              </p>
+            </td>
+          </tr>
+
+          <tr onmouseout="mutual_stop()" onmouseover="mutual_start()">
+            <td style="padding:16px;width:20%;vertical-align:middle">
+              <div class="one" id='mutual'>
+                <div class="two" id='mutual_image'>
+                  <video width="160" height="160" muted autoplay loop style="object-fit: cover;">
+                      <source src="images/robo_mutual/logo.mp4" type="video/mp4">
+                      Your browser does not support the video tag.
+                  </video>
+                  <script>
+                    // 获取视频元素
+                    const video_mutual = document.querySelector('#mutual video');
+                
+                    // 设置播放速度为三倍速
+                    video_mutual.playbackRate = 10;
+                    
+                </script>
+              </div>
+              <img src='images/robo_mutual/logo.png' width="160">
+              </div>
+              <script type="text/javascript">
+                function mutual_start() {
+                  document.getElementById('mutual_image').style.opacity = "1";
+                }
+      
+                function mutual_stop() {
+                  document.getElementById('mutual_image').style.opacity = "0";
+                }
+                mutual_stop()
+              </script>
+            </td>
+            <td style="padding:8px;width:80%;vertical-align:middle">
+            <span class="papertitle">Robo-MUTUAL: Robotic Multimodal Task Specification via Unimodal Learning</span>
+              <br>
+              <a href="https://scholar.google.com/citations?user=TRLwpiUAAAAJ&hl=zh-CN">Jianxiong Li</a>*,
+              <strong>Zh1hao Wang</strong>*,
+              <a href="https://scholar.google.com/citations?user=3j5AHFsAAAAJ&hl=zh-CN">Jinliang Zheng</a>*,
+              <a href="https://openreview.net/profile?id=~Xiaoai_Zhou1">Xiaoai Zhou</a>,
+              <a href="https://openreview.net/profile?id=~Guanming_Wang1">Guanming Wang</a>,
+              <a href="https://songguanglu.github.io/">Guanglu Song</a>,
+              <a href="https://liuyu.us/">Yu Liu</a>,
+              <a href="https://air.tsinghua.edu.cn/en/info/1046/1194.htm">Jingjing Liu</a>,
+              <a href="https://air.tsinghua.edu.cn/en/info/1046/1188.htm">Ya-Qin Zhang</a>,
+              <a href="https://scholar.google.com/citations?user=Gudfky4AAAAJ&hl=zh-CN">Junzhi Yu</a>,
+              <a href="https://zhanxianyuan.xyz/">Xianyuan Zhan</a>
+              <br>
+              <em>ICRA</em>, 2025
+              <br>
+              <em>NeurIPS Workshop on Open-World Agents</em>, 2024
+              <br>
+              <a href="https://zh1hao.wang/Robo_MUTUAL/">project page</a>
+              /
+              <a href="https://arxiv.org/abs/2410.01529">arXiv</a>
+              <p></p>
+              <p>
+              An approach for training a <u>multimodal</u> robotic policy via only <u>unimodal</u> datasets.
+              </p>
+            </td>
+          </tr>
+
+
+          <table width="100%" align="center" border="0" cellpadding="20"><tbody>
+            <tr>
+              <td>
+                <h2>Awards and Achievements</h2>
+              </td>
+            </tr>
+          </tbody></table>
+          <ul>
+            <li>[2025] Peking University Graduate Student Special Academic Scholarship</li>
+            <li>[2024] 1st at AIR Summer 2024 Projects Competition</li>
+            <li>[2024] Shandong Outstanding Graduates</li>
+            <li>[2023] Undergraduate National Scholarship</li>
+            <li>[2023] Huawei Intelligent Foundation Scholarship</li>
+            <li>[2022] 1st at Formula Student Autonomous China Competition</li>
+          </ul>
+
+          <table width="100%" align="center" border="0" cellpadding="20"><tbody>
+            <tr>
+              <td>
+                <h2>Academic Service</h2>
+              </td>
+            </tr>
+          </tbody></table>
+          <ul>
+            <li>Reviewer: ICLR 2026</li>
+            <li>Reviewer: AAAI 2026</li>
+            <li>Reviewer: EWM@NeurIPS 2025</li>
+            <li>Reviewer: WRL@ICLR 2025</li>
+          </ul>
+ 
+          <!-- </tbody></table> -->
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+            <tr>
+              <td style="padding:0px">
+                <br>
+                <p style="text-align:center;font-size:small;">
+                  Source code credit to <a href="https://jonbarron.info/" target="_blank">Dr. Jon Barron</a></p>
+                </p>
+              </td>
+            </tr>
+          </tbody></table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>暗黑模式切换按钮</title>
+    <style>
+        /* 暗黑模式的 CSS 类 */
+        .dark-mode {
+            background-color: black !important;
+            color: white !important;
+        }
+
+        /* 确保图片不受影响 */
+        .dark-mode img {
+            filter: none !important;
+        }
+
+        /* 按钮容器 */
+        #toggle-theme-btn {
+            padding: 0;
+            width: 60px;
+            height: 30px;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* 图标容器 */
+        .icon-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        /* 太阳和月亮图标 */
+        .icon {
+            font-size: 20px;
+            z-index: 2;
+            transition: opacity 0.3s ease;
+        }
+
+        /* 默认显示太阳，隐藏月亮 */
+        .icon.moon {
+            opacity: 0;
+        }
+
+        /* 背景层 */
+        .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #fff38c; /* 太阳模式的背景色 */
+            z-index: 1;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        /* 暗黑模式下的样式 */
+        .dark-mode .icon.sun {
+            opacity: 0;
+        }
+
+        .dark-mode .icon.moon {
+            opacity: 1;
+        }
+
+        .dark-mode .background {
+            background-color: #adadad; /* 月亮模式的背景色 */
+            transform: translateX(100%);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 暗黑模式切换按钮 -->
+    <button id="toggle-theme-btn" style="position: fixed; top: 10px; right: 100px; z-index: 1000;">
+        <div class="icon-container">
+            <span class="icon sun">☀️</span>
+            <span class="icon moon">🌙</span>
+            <span class="background"></span>
+        </div>
+    </button>
+
+    <script>
+        // 获取按钮元素
+        const toggleButton = document.getElementById('toggle-theme-btn');
+
+        // 监听按钮点击事件
+        toggleButton.addEventListener('click', () => {
+            // 切换 body 的类
+            document.body.classList.toggle('dark-mode');
+        });
+    </script>
+</body>
+</html>
