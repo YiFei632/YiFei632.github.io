@@ -5,6 +5,10 @@ const authorLinks = {
   "Zhanhua Xin": "https://xinzhanhua.github.io/",
   "Kaiwei Zhu": "https://scholar.google.com.hk/citations?user=BFdOuJ8AAAAJ&hl=zh-CN",
   "Junzhi Yu": "https://amr.pku.edu.cn/jzyg/szdw/Y/7cc6c4a98def4c4089fe08ce09a5479c.htm",
+  "Delun Li": "https://piqiuni.github.io/",
+  "Xingyu Chen": "https://seanchenxy.github.io/",
+  "Shaoan Wang": "https://shaoanwang.github.io/",
+  "Wenjie Song": "https://bit-inin-wj.github.io/"
 
 };
 
