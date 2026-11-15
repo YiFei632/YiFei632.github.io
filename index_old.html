@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="auto">
+  <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3Y11HDNJTQ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){ dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'G-3Y11HDNJTQ');
+    </script>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Yifei Wang</title>
+    <meta name="description" content="Yifei (Y1Fei) Wang — Embodied AI, RL and Robotics." />
+    <meta name="author" content="Yifei (Y1Fei) Wang" />
+    <link rel="shortcut icon" href="./images/favicon_pku/favicon.ico" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="stylesheet.css" />
+    <script src="utils.js" defer></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://yifei632.github.io/" /> <meta property="og:title" content="Yifei Wang - Embodied AI Researcher" />
+    <meta property="og:description" content="Ph.D. student at PKU, Intern at Beijing Zhongguancun Academy. Focusing on Embodied AI, RL and Robotics." />
+    <meta property="og:image" content="https://yifei632.github.io/images/me_v4.png" /> <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://yifei632.github.io/" />
+    <meta property="twitter:title" content="Yifei Wang" />
+    <meta property="twitter:description" content="Research in Embodied AI, RL and Robotics." />
+    <meta property="twitter:image" content="https://yifei632.github.io/images/me_v4.png" />
+    <style>
+      /* ========= THEME TOKENS ========= */
+      :root {
+        --bg: #ffffff;
+        --text: #0f172a;      /* slate-900 */
+        --muted: #64748b;     /* slate-500 */
+        --link: #2563eb;      /* blue-600 */
+        --link-hover: #1d4ed8;/* blue-700 */
+        --card: #f8fafc;      /* slate-50 */
+        --border: #e2e8f0;    /* slate-200 */
+        --chip-bg: #eef2ff;   /* indigo-50 */
+        --chip-text: #3730a3; /* indigo-800 */
+        --shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #0b0f19;
+          --text: #e5e7eb;
+          --muted: #94a3b8;
+          --link: #60a5fa;
+          --link-hover: #93c5fd;
+          --card: #0f172a;
+          --border: #1f2937;
+          --chip-bg: #1f2937;
+          --chip-text: #c7d2fe;
+          --shadow: 0 8px 28px rgba(0,0,0,0.45);
+        }
+      }
+      [data-theme="light"] {
+        --bg: #ffffff; --text:#0f172a; --muted:#64748b; --link:#2563eb; --link-hover:#1d4ed8;
+        --card:#f8fafc; --border:#e2e8f0; --chip-bg:#eef2ff; --chip-text:#3730a3; --shadow:0 8px 24px rgba(15,23,42,.08);
+      }
+      [data-theme="dark"] {
+        --bg:#0b0f19; --text:#e5e7eb; --muted:#94a3b8; --link:#60a5fa; --link-hover:#93c5fd;
+        --card:#0f172a; --border:#1f2937; --chip-bg:#1f2937; --chip-text:#c7d2fe; --shadow:0 8px 28px rgba(0,0,0,.45);
+      }
+
+      /* ========= GLOBAL ========= */
+      html, body {
+        background: var(--bg);
+        color: var(--text);
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        font-size: 16px;
+        line-height: 1.6;
+        letter-spacing: 0.1px;
+      }
+      a { color: var(--link); text-decoration: none; }
+      a:hover { color: var(--link-hover); text-decoration: underline; }
+      img, video { display: block; max-width: 100%; height: auto; border-radius: 12px; }
+      .container {
+        max-width: 980px;
+        padding: 24px 20px 80px;
+        margin: 0 auto;
+      }
+
+      /* ========= HEADER ========= */
+      .topbar {
+        position: sticky; top: 0; z-index: 1000;
+        backdrop-filter: saturate(1.2) blur(8px);
+        background: color-mix(in oklab, var(--bg) 85%, transparent);
+        border-bottom: 1px solid var(--border);
+      }
+      .topbar-inner {
+        max-width: 980px; margin: 0 auto; padding: 10px 20px;
+        display: flex; align-items: center; justify-content: space-between;
+        gap: 12px;
+      }
+      .brand { font-weight: 700; letter-spacing: .2px; }
+      .theme-toggle {
+        display: inline-flex; align-items: center; gap: 8px;
+        padding: 6px 10px; border-radius: 999px;
+        border: 1px solid var(--border); background: var(--card);
+        box-shadow: var(--shadow); cursor: pointer; user-select: none;
+      }
+      .theme-toggle .dot {
+        width: 18px; height: 18px; border-radius: 50%;
+        background: radial-gradient(circle at 60% 40%, #ffdf6d 0 30%, #f59e0b 40% 60%, transparent 61%),
+                    conic-gradient(from 0deg, #f59e0b, #fde68a, #f59e0b);
+        transition: transform .25s ease;
+      }
+      [data-theme="dark"] .theme-toggle .dot {
+        background: radial-gradient(circle at 60% 40%, #cbd5e1 0 30%, #64748b 40% 60%, transparent 61%),
+                    conic-gradient(from 0deg, #94a3b8, #cbd5e1, #94a3b8);
+        transform: translateX(2px) rotate(10deg);
+      }
+      /* 让 Theme 按钮的文字颜色跟随主题变量 */
+      .theme-toggle {
+        color: var(--text) !important;
+        transition: color .2s ease, background-color .2s ease, border-color .2s ease;
+      }
+      /* 确保内部文字继承颜色（有些浏览器对 button 文本不继承）*/
+      .theme-toggle * {
+        color: inherit !important;
+      }
+
+      /* ========= HERO ========= */
+      .portrait img { width: 100%; height: auto; }
+
+      .hero {
+        display: grid;
+        grid-template-columns: 1fr min(24vw, 180px); /* 可把 220px 改成你想要的上限 */
+        gap: 28px; align-items: center;
+        padding-top: 22px;
+      }
+      .name { font-size: clamp(28px, 3.4vw, 42px); font-weight: 800; line-height: 1.15; margin: 0 0 6px; text-align: left; }
+      .roles { color: var(--muted); margin: 0 0 18px; }
+      .aff p { margin: 6px 0; }
+      .links {
+        display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px;
+      }
+      .chip {
+        display: inline-flex; align-items: center; gap: 8px;
+        padding: 6px 10px; border-radius: 999px;
+        background: var(--chip-bg); color: var(--chip-text); border: 1px solid var(--border);
+        font-weight: 600;
+      }
+      .portrait { aspect-ratio: 1 / 1; overflow: hidden; border-radius: 16px; box-shadow: var(--shadow); 
+                    /* 1. 设置相对定位，以便内部的绝对定位图片能以此为基准 */
+                  position: relative;
+                  /* 2. 确保容器能够捕获到鼠标事件 */
+                  cursor: pointer;}
+
+      /* --- 图片切换样式 --- */
+      .portrait img {
+          /* 3. 绝对定位使两张图重叠在一起 */
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover; /* 确保图片覆盖整个容器 */
+          
+          /* 4. 添加过渡效果，让切换更平滑 */
+          transition: opacity 0.4s ease-in-out; 
+      }
+
+      /* 5. 默认设置：默认图显示，悬停图隐藏 */
+      .default-image {
+          opacity: 1;
+      }
+
+      .hover-image {
+          opacity: 0;
+      }
+
+      /* 6. 鼠标悬停在 .portrait 容器上时： */
+      .portrait:hover .default-image {
+          /* 隐藏默认图 */
+          opacity: 0;
+      }
+
+      .portrait:hover .hover-image {
+          /* 显示悬停图 */
+          opacity: 1;
+      }
+
+      /* ========= SECTIONS ========= */
+      section { margin-top: 40px; }
+      h2 {
+        margin: 0 0 14px; font-size: 22px; letter-spacing: .2px;
+        border-bottom: 1px solid var(--border); padding-bottom: 8px;
+      }
+      .news { list-style: none; padding-left: 0; margin: 0; }
+      .news li {
+        padding: 10px 12px; border: 1px solid var(--border); border-radius: 12px;
+        background: var(--card); margin-bottom: 10px;
+      }
+
+      /* ========= PROJECT LIST ========= */
+      .projects { display: flex; flex-direction: column; gap: 18px; }
+      .project {
+        display: grid; gap: 16px; align-items: start;
+        grid-template-columns: 180px 1fr;
+        padding: 14px; border: 1px solid var(--border); border-radius: 14px; background: var(--card);
+        transition: transform .12s ease, box-shadow .12s ease;
+      }
+      .project:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+      .thumb { position: relative; width: 100%; aspect-ratio: 1 / 1; border-radius: 12px; overflow: hidden; }
+      .thumb img { width: 100%; height: 100%; object-fit: cover; }
+      .thumb .overlay {
+        position: absolute; inset: 0; opacity: 0; transition: opacity .2s ease;
+      }
+      .project:hover .thumb .overlay { opacity: 1; }
+      .thumb video { width: 100%; height: 100%; object-fit: cover; }
+
+      .meta { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin: 4px 0 8px; }
+      .tag { font: 600 12px/1.5 JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, monospace; padding: 4px 8px; border-radius: 8px; background: var(--chip-bg); color: var(--chip-text); border: 1px dashed var(--border); }
+      .papertitle { font-size: 18px; font-weight: 700; margin: 0 0 6px; }
+      .authors { margin: 0 0 6px; line-height: 1.4; }
+      .links-row { display: flex; gap: 12px; flex-wrap: wrap; margin: 6px 0 2px; }
+      .links-row a { text-decoration: underline; text-underline-offset: 3px; }
+      .desc { margin: 6px 0 0; }
+
+      /* ========= TWO-COLS LISTS ========= */
+      .grid-2 {
+        display: grid; gap: 14px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .grid-2 ul { margin: 0; padding-left: 18px; }
+      .grid-2 li { margin: 6px 0; }
+
+      /* 方案A：左栏自适应（根据内容自动变宽，上限 --left-max，下限 --left-min），右栏填充剩余 */
+      .grid-2--auto-left {
+        display: grid;
+        gap: 14px;
+        grid-template-columns:
+          minmax(var(--left-min, 180px), fit-content(var(--left-max, 420px)))
+          minmax(0, 1fr);
+      }
+
+      /* 方案B：右栏自适应（根据内容自动变宽，上限 --right-max，下限 --right-min），左栏填充剩余 */
+      .grid-2--auto-right {
+        display: grid;
+        gap: 14px;
+        grid-template-columns:
+          minmax(0, 1fr)
+          minmax(var(--right-min, 220px), fit-content(var(--right-max, 460px)));
+      }
+
+      /* 列表内边距与项间距（与原样保持一致） */
+      .grid-2--auto-left ul,
+      .grid-2--auto-right ul { margin: 0; padding-left: 18px; }
+      .grid-2--auto-left li,
+      .grid-2--auto-right li { margin: 6px 0; }
+
+      /* 小屏仍然单列显示 */
+      @media (max-width: 720px) {
+        .grid-2--auto-left,
+        .grid-2--auto-right { grid-template-columns: 1fr; }
+      }
+
+      /* ========= FOOTER ========= */
+      footer {
+        margin-top: 36px; padding-top: 14px;
+        border-top: 1px solid var(--border);
+        color: var(--muted); text-align: center; font-size: 14px;
+      }
+
+      /* ========= RESPONSIVE ========= */
+      /* ========= RESPONSIVE ========= */
+      @media (max-width: 880px) {
+        .hero { grid-template-columns: 1fr; }
+        .name { text-align: center; }
+        .roles, .aff { text-align: center; }
+        .links { justify-content: center; }
+        .portrait { max-width: 320px; margin: 0 auto; }
+
+        /* --- 新增部分：移动端强制显示吉卜力图 --- */
+        
+        /* 1. 隐藏真实的默认照片 */
+        .portrait .default-image {
+          opacity: 0 !important; 
+        }
+        
+        /* 2. 显示吉卜力风格图 */
+        .portrait .hover-image {
+          opacity: 1 !important;
+        }
+        
+        /* 3. 可选：取消移动端的手型光标，暗示不可点击 */
+        .portrait {
+          cursor: default;
+        }
+      }
+      /* @media (max-width: 720px) {
+        .project { grid-template-columns: 1fr; }
+        .thumb { aspect-ratio: 16 / 9; }
+        .grid-2 { grid-template-columns: 1fr; }
+      }*/
+      @media (max-width: 720px) {
+        .project { grid-template-columns: 1fr; }
+        /* .thumb { aspect-ratio: 16 / 9; } <-- 删除或注释掉这行 */
+        .thumb img { height: auto; }          /* <-- 添加这行，让图片自动高度 */
+        .grid-2 { grid-template-columns: 1fr; }
+      }
+
+
+      .grid-2--auto-left{
+        display:grid; gap:14px;
+        grid-template-columns:
+          minmax(var(--left-min,200px), fit-content(var(--left-max,420px)))
+          minmax(0,1fr);
+      }
+      .grid-2--auto-left > * { min-width:0; } /* 防止内容把列撑爆 */
+
+      /* 调小断点：只有特别窄(<600px)才单栏 */
+      @media (max-width:600px){
+        .grid-2--auto-left{ grid-template-columns:1fr; }
+      }
+
+      /* 1. 每一行经历的容器 */
+      .exp-item {
+        display: flex;
+        align-items: center; /* 垂直居中 */
+        margin-bottom: 10px;
+        gap: 50px; /* Logo容器和文字之间的间距 */
+      }
+
+      /* 2. 关键：固定 Logo 容器的宽度 */
+      .exp-logo {
+        /* 设定一个统一的宽度，比如 180px */
+        /* 无论里面的图是长是短，这个容器永远占 180px */
+        width: 480px; 
+        flex-shrink: 0; /* 防止容器被挤压 */
+        
+        /* 让内部的 Logo 在这个 180px 的空间里居中显示 */
+        /* 如果你喜欢左对齐，把 center 改为 flex-start */
+        display: flex;
+        justify-content: center; 
+        align-items: center;
+      }
+
+      /* 3. 让 SVG 和 PNG 自适应这个容器 */
+      .exp-logo svg, 
+      .exp-logo img {
+        width: 100%;      /* 尝试填满容器宽度 */
+        height: auto;     /* 高度自动保持比例 */
+        max-height: 100px; /* 限制最大高度，防止方形 Logo (如AIR) 变得巨大 */
+        object-fit: contain;
+        display: block;   /* 消除图片底部空隙 */
+      }
+
+      /* 4. 右侧文字部分的样式优化 */
+      .exp-details {
+        display: flex;
+        flex-direction: column; /* 让标题和时间上下排列，或者改为 row 左右排列 */
+        justify-content: center;
+      }
+
+      .exp-details h3 {
+        margin: 0 0 5px 0;
+        font-size: 1.1rem;
+      }
+
+      .exp-details .exp-time {
+        color: #666;
+        font-size: 0.9rem;
+      }
+
+      /* 移动端适配 */
+      @media (max-width: 600px) {
+        .exp-item {
+          flex-direction: column; /* 上下排列 */
+          align-items: flex-start; /* 左对齐 */
+          gap: 10px;
+        }
+
+        /* --- 新增的核心修复代码 --- */
+        .exp-logo {
+          /* 1. 取消固定的 480px，改为自适应宽度 */
+          width: 100%; 
+          
+          /* 2. (可选) 限制最大宽度，防止 Logo 在手机上显得过大 */
+          max-width: 800px; 
+
+          /* 3. 因为变成了上下排列，Logo 靠左显示可能比居中更好看 */
+          justify-content: flex-start; 
+        }
+      }
+
+      /* 默认隐藏多余项目的类 */
+      .news-hidden {
+          display: none;
+      }
+
+      /* 按钮的简单的悬停效果 */
+      #load-more-container:hover {
+          text-decoration: underline;
+      }
+
+      .aff p {
+        display: flex;
+        align-items: flex-start; /* 让箭头始终对齐第一行 */
+        margin-bottom: 10px;
+        line-height: 1.5;
+      }
+      .arrow-icon {
+        color: #2b78e4; /* 蓝色，你可以修改这个颜色代码 */
+        margin-right: 8px; /* 箭头和文字之间的间距 */
+        flex-shrink: 0; /* 防止箭头被压缩 */
+        font-weight: bold;
+      }
+
+    </style>
+
+    <script>
+      (function () {
+        const key = "theme-pref";
+        const pref = localStorage.getItem(key) || "auto";
+        const dark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+        const resolved = pref === "auto" ? (dark ? "dark" : "light") : pref;
+        const root = document.documentElement;
+        root.setAttribute("data-theme", resolved);
+        root.dataset.themeMode = pref;
+      })();
+    </script>
+  </head>
+
+  <body>
+    <!-- Top bar -->
+    <div class="topbar">
+      <div class="topbar-inner">
+        <div class="brand">Yifei Wang</div>
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle color theme" type="button">
+          <span class="dot" aria-hidden="true"></span>
+          <span style="font-weight:600">Theme</span>
+        </button>
+      </div>
+    </div>
+
+    <main class="container">
+      <!-- HERO -->
+      <section class="hero">
+        <div>
+          <h1 class="name">Y1Fei Wang</h1>
+          <p class="roles">Embodied AI · Robotics</p>
+
+          <div class="aff">
+            <p>
+              <span class="arrow-icon">➤</span>
+              <span>A third-year Ph.D. student at School of Advanced Manufacturing and Robotics, Peking University, advised by Professor <a href="https://pkuyulab.com/" target="_blank" rel="noopener noreferrer">Junzhi Yu</a>.</span>
+            </p>
+            <p>
+              <span class="arrow-icon">➤</span>
+              <span>Also a research intern at <a href="https://bza.edu.cn/" target="_blank" rel="noopener noreferrer">Zhongguancun Academy</a>, advised by Professor <a href="https://seanchenxy.github.io/" target="_blank" rel="noopener noreferrer">Xingyu Chen</a>.</span>
+            </p>
+            <p>
+              <span>Prior to that, I earned my B.Eng. degree in Intelligent Manufacturing Engineering from the Beijing Institute of Technology (<a href="https://www.bit.edu.cn/" target="_blank" rel="noopener noreferrer">BIT</a>).</span>
+            </p>
+            <p>
+              <span>My research interests focus on Embodied Intelligence and Robotics, including VLA, RL and CV.</span>
+            </p>
+          </div>
+
+          <div class="links" aria-label="Quick links">
+            <a class="chip" href="mailto:yifei@stu.pku.edu.cn">Email</a>
+            <a class="chip" href="images/cv_wyf.pdf" target="_blank" rel="noopener noreferrer">CV</a>
+            <a class="chip" href="http://10.129.202.217:8090/" target="_blank" rel="noopener noreferrer">Blog</a>
+            <a class="chip" href="https://scholar.google.com.hk/citations?user=kUC_7MEAAAAJ&hl=zh-CN" target="_blank" rel="noopener noreferrer">Scholar</a>
+            <a class="chip" href="https://github.com/YiFei632" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a class="chip" href="https://www.zhihu.com/people/walker-50-67-28" target="_blank" rel="noopener noreferrer">Zhihu</a>
+          </div>
+        </div>
+
+        <div class="portrait">
+            <img src="images/me_wyf.jpg" alt="Portrait of YiFei" class="default-image" />
+            <img src="images/me_ghibli.png" alt="Hover Image" class="hover-image" />
+        </div>
+      </section>
+
+      <!-- NEWS -->
+      <section id="news">
+        <h2>News</h2>
+        <ul class="news" id="news-list">
+          <li>03/2026: Our paper <strong>OAT-UUV</strong> has been accepted by <strong>IEEE/ASME Trans. Mechat.</strong>!</li>
+          <li>10/2025: Our paper <strong>OAT-AUV</strong> has been accepted by <strong>ROBIO 2025</strong>!</li>
+          <li>06/2025: Our paper <strong>Evidence-Based Tri-Branch Cross-Pseudo Supervision Method</strong> has been accepted by <strong>IROS 2025</strong>!</li>
+        </ul>
+        
+        <div id="load-more-container" style="margin-top: 10px; cursor: pointer; color: #0066cc; font-weight: bold;">
+          Show more ↓
+        </div>
+
+        <p style="margin-top:10px;color:var(--muted);font-size:14px;">
+          Thanks to all collaborators and supporters, looking forward to more exciting research ahead!
+        </p>
+      </section>
+
+      <!-- EXPERIENCE -->
+      <section id="experience">
+        <h2>Experience</h2>
+
+        <div class="exp-item">
+            <div class="exp-logo">
+              <img 
+                src="images/zgca_logo.jpg" 
+                style="width: 40%;" 
+                alt="zgca logo" 
+              />
+            </div>
+            <div class="exp-details">
+              <h3>Research Intern</h3>
+              <span class="exp-time">2026.02 - Present</span>
+            </div>
+          </div>
+
+          <div class="exp-item">
+            <div class="exp-logo">
+              <img 
+                src="images/tron_logo.png" 
+                style="width: 40%;" 
+                alt="tron logo" 
+              />
+            </div>
+            <div class="exp-details">
+              <h3>Campus Ambassador</h3>
+              <span class="exp-time">2026.04 - Present</span>
+            </div>
+          </div>
+
+      </section>
+
+      
+      <!-- RESEARCH -->
+      <section id="research">
+        <h2>Research</h2>
+        <p>My long-term vision is to build the <b><i>GENERAL</i></b> and <b><i>INTERACTRIC</i></b> embodied intelligence. 🤖🧠</p>
+
+        <div class="projects">
+
+          <!-- MultiNav -->
+          <article class="project">
+            <div class="thumb">
+              <img src="images/multinav/multinav.png" alt="multinav logo" />
+              <div class="overlay" aria-hidden="true">
+                <video class="lazy" muted autoplay loop playsinline>
+                  <source data-src="images/multinav/multinav.mov" type="video/mov" />
+                </video>
+              </div>
+            </div>
+            <div>
+              <h3 class="papertitle">Interactive Navigation Beyond Reachability: Benchmark and Agentic Framework</h3>
+              <p class="authors">Delun Li<sup>*</sup>, Xueyao Wei<sup>*</sup>, Rui Chen, me, Junzhi Yu, Wenjie Song, Xingyu Chen<sup>†</sup></p>
+              <div class="meta">
+                <span class="tag">Preprint 2026</span>
+              </div>
+              <div class="links-row">
+                <a href="https://arxiv.org/abs/2610.17089" target="_blank" rel="noopener noreferrer">paper</a>
+                <a href="https://zgca-hmi-lab.github.io/MultINav/" target="_blank" rel="noopener noreferrer">project</a>
+                <a href="https://github.com/ZGCA-HMI-Lab/MultINav" target="_blank" rel="noopener noreferrer">code</a>
+                <a href="https://huggingface.co/datasets/Piqiuni/MultINav-Bench" target="_blank" rel="noopener noreferrer">dataset</a>
+              </div>
+              <p class="desc">Unifying channel-induced changes in <b>spatial connectivity, container-induced changes</b> in <b>target visibility, and their sequential dependencies</b>.</p>
+            </div>
+          </article>
+          
+          <!-- MemVLN -->
+          <article class="project">
+            <div class="thumb">
+              <img src="images/memvln/overview.jpg" alt="memvln logo" />
+              <div class="overlay" aria-hidden="true">
+                <video class="lazy" muted autoplay loop playsinline>
+                  <source data-src="images/memvln/expt.mp4" type="video/mp4" />
+                </video>
+              </div>
+            </div>
+            <div>
+              <h3 class="papertitle">MemoryVLN: From Ego-Aware Memory Representation to Cross-Context Memory Reuse in Vision-Language Navigation</h3>
+              <p class="authors">Xueyao Wei, me, Delun Li, Shaoan Wang, Junzhi Yu, Wenjie Song<sup>†</sup>, Xingyu Chen<sup>†</sup></p>
+              <div class="meta">
+                <span class="tag">Preprint 2026</span>
+              </div>
+              <div class="links-row">
+                <a href="https://arxiv.org/abs/2610.18478" target="_blank" rel="noopener noreferrer">paper</a>
+                <a href="https://zgca-hmi-lab.github.io/MemVLN/" target="_blank" rel="noopener noreferrer">project</a>
+                <a href="https://github.com/ZGCA-HMI-Lab/MemVLN" target="_blank" rel="noopener noreferrer">code</a>
+              </div>
+              <p class="desc">Turn a growing stream of first-person observations into <b>compact, spatially grounded memory</b>.</p>
+            </div>
+          </article>
+          
+          <!-- OAT-UUV -->
+          <article class="project">
+            <div class="thumb">
+              <img src="images/oatuuv/logo.png" alt="oat-uuv logo" />
+              <div class="overlay" aria-hidden="true">
+                <video class="lazy" muted autoplay loop playsinline>
+                  <source data-src="images/oatuuv/logo.mp4" type="video/mp4" />
+                </video>
+              </div>
+            </div>
+            <div>
+              <h3 class="papertitle">Design of an Underwater Vehicle With Orientation-Adjustable Thrusters and Adaptive Tracking Control</h3>
+              <p class="authors">me, Shihan Kong, Zhanhua Xin, Kaiwei Zhu, Junzhi Yu<sup>†</sup></p>
+              <div class="meta">
+                <span class="tag">IEEE/ASME Transactions on Mechatronics 2026</span>
+              </div>
+              <div class="links-row">
+                <a href="https://ieeexplore.ieee.org/document/11456427" target="_blank" rel="noopener noreferrer">paper</a>
+                <a href="https://github.com/YiFei632/OAT-UUV" target="_blank" rel="noopener noreferrer">code</a>
+              </div>
+              <p class="desc">A novel underwater vehicle with <b>orientation adjustable thrusters</b> and <b>adaptive tracking control</b> method.</p>
+            </div>
+          </article>
+
+        <p style="margin-top:10px;color:var(--muted);font-size:14px;">
+          <sup>*</sup> Equal contribution.
+          <sup>†</sup> Corresponding author.
+        </p>
+      </section>
+
+      <!-- AWARDS & SERVICE -->
+      <section id="honors">
+        <div class="grid-2--auto-left">
+          <div>
+            <h2>Awards & Achievements</h2>
+            <ul>
+              <li>[2026] Peking University Graduate Student Special Academic Scholarship</li>
+              <li>[2025] Peking University Graduate Student Special Academic Scholarship</li>
+              <li>[2024] Beijing Institute of Technology Outstanding Graduates</li>
+            </ul>
+          </div>
+          <div>
+            <h2>Academic Service</h2>
+            <ul>
+              <li>Reviewer at journals: RA-L</li>
+              <li>Reviewer at conferences: ICRA 2026</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        Source code credit to <a href="https://jonbarron.info/" target="_blank" rel="noopener noreferrer">Dr. Jon Barron</a>.
+      </footer>
+    </main>
+
+    <!-- <script>
+      // ===== Robust theme toggle with auto resolve =====
+      const THEME_KEY = "theme-pref"; // 'auto' | 'light' | 'dark'
+      const root = document.documentElement;
+      const btn = document.getElementById("theme-toggle");
+
+      const prefersDark = () => window.matchMedia("(prefers-color-scheme: dark)").matches;
+      const resolve = (mode) => (mode === "auto" ? (prefersDark() ? "dark" : "light") : mode);
+
+      function apply(mode) {
+        const resolved = resolve(mode);            // 'light' | 'dark'
+        root.setAttribute("data-theme", resolved); // 实际生效主题
+        root.dataset.themeMode = mode;             // 记录当前模式（含 auto）
+        try { localStorage.setItem(THEME_KEY, mode); } catch (e) {}
+      }
+
+      function currentMode() {
+        return root.dataset.themeMode || localStorage.getItem(THEME_KEY) || "auto";
+      }
+
+      // ✅ 改这里：根据“当前实际效果”二态切换，避免出现要点两次的体验
+      function cycleTheme() {
+        const effective = resolve(currentMode());      // 'light' | 'dark'
+        const next = effective === "dark" ? "light" : "dark";
+        apply(next);
+      }
+
+      // 初始应用（避免 FOUC）
+      apply(localStorage.getItem(THEME_KEY) || "light");
+
+      // 系统偏好变化时，仅在 auto 下跟随
+      const mql = window.matchMedia("(prefers-color-scheme: dark)");
+      mql.addEventListener?.("change", () => {
+        if (currentMode() === "auto") apply("auto");
+      });
+
+      btn.addEventListener("click", cycleTheme);
+    </script> -->
+
+    <script>
+      // ===== 精简版主题切换（无缓存，默认白色） =====
+      const root = document.documentElement;
+      const btn = document.getElementById("theme-toggle");
+
+      // 这里的 mode 仅为 'light' 或 'dark'，不再需要 auto 逻辑
+      function apply(mode) {
+        root.setAttribute("data-theme", mode);
+        root.dataset.themeMode = mode;
+      }
+
+      function cycleTheme() {
+        // 获取当前实际生效的主题，如果是 dark 就变 light，反之亦然
+        const current = root.getAttribute("data-theme") || "light";
+        const next = current === "dark" ? "light" : "dark";
+        apply(next);
+      }
+
+      // 1. 初始应用：直接设为白色，不读取缓存
+      apply("light");
+
+      // 2. 绑定点击事件
+      btn.addEventListener("click", cycleTheme);
+
+      // 注意：已移除系统偏好监听 (mql) 和 localStorage 存储逻辑
+    </script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        var lazyVideos = [].slice.call(document.querySelectorAll("video.lazy"));
+
+        if ("IntersectionObserver" in window) {
+          var lazyVideoObserver = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(function(video) {
+              if (video.isIntersecting) {
+                for (var source in video.target.children) {
+                  var videoSource = video.target.children[source];
+                  if (typeof videoSource.tagName === "string" && videoSource.tagName === "SOURCE") {
+                    videoSource.src = videoSource.dataset.src;
+                  }
+                }
+                video.target.load();
+                video.target.play(); // 开始播放
+                video.target.classList.remove("lazy");
+                lazyVideoObserver.unobserve(video.target);
+              }
+            });
+          });
+
+          lazyVideos.forEach(function(lazyVideo) {
+            lazyVideoObserver.observe(lazyVideo);
+          });
+        }
+      });
+    </script>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const list = document.getElementById('news-list');
+        const items = list.getElementsByTagName('li');
+        const loadMoreBtn = document.getElementById('load-more-container');
+        const itemsToShow = 3; 
+        let isExpanded = false; // 记录当前状态
+
+        if (items.length <= itemsToShow) {
+          loadMoreBtn.style.display = 'none';
+          return;
+        }
+
+        // 初始化隐藏
+        function hideItems() {
+          for (let i = itemsToShow; i < items.length; i++) {
+            items[i].style.display = 'none';
+          }
+        }
+        
+        // 初始化执行隐藏
+        hideItems();
+
+        loadMoreBtn.addEventListener('click', function() {
+          if (!isExpanded) {
+            // 展开操作
+            for (let i = itemsToShow; i < items.length; i++) {
+              items[i].style.display = 'list-item'; // 恢复显示
+            }
+            loadMoreBtn.innerHTML = 'Show less ↑'; // 改变文字
+            isExpanded = true;
+          } else {
+            // 收起操作
+            hideItems();
+            loadMoreBtn.innerHTML = 'Show more ↓'; // 恢复文字
+            isExpanded = false;
+          }
+        });
+      });
+    </script>
+
+  </body>
+</html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="auto">
+<html lang="en" data-theme="dark">
   <head>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-3Y11HDNJTQ"></script>
@@ -318,73 +318,73 @@
         .grid-2--auto-left{ grid-template-columns:1fr; }
       }
 
-      /* 1. 每一行经历的容器 */
+      /* ========= EXPERIENCE ========= */
+      .exp-list {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
       .exp-item {
-        display: flex;
-        align-items: center; /* 垂直居中 */
-        margin-bottom: 10px;
-        gap: 50px; /* Logo容器和文字之间的间距 */
-      }
-
-      /* 2. 关键：固定 Logo 容器的宽度 */
-      .exp-logo {
-        /* 设定一个统一的宽度，比如 180px */
-        /* 无论里面的图是长是短，这个容器永远占 180px */
-        width: 480px; 
-        flex-shrink: 0; /* 防止容器被挤压 */
-        
-        /* 让内部的 Logo 在这个 180px 的空间里居中显示 */
-        /* 如果你喜欢左对齐，把 center 改为 flex-start */
-        display: flex;
-        justify-content: center; 
+        display: grid;
+        grid-template-columns: minmax(0, 480px) minmax(0, 1fr);
+        gap: 40px;
         align-items: center;
+        padding: 16px 20px;
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        background: var(--card);
       }
-
-      /* 3. 让 SVG 和 PNG 自适应这个容器 */
-      .exp-logo svg, 
+      .exp-logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-width: 0;
+      }
+      .exp-logo svg,
       .exp-logo img {
-        width: 100%;      /* 尝试填满容器宽度 */
-        height: auto;     /* 高度自动保持比例 */
-        max-height: 100px; /* 限制最大高度，防止方形 Logo (如AIR) 变得巨大 */
+        width: 100%;
+        height: auto;
+        max-height: 100px;
         object-fit: contain;
-        display: block;   /* 消除图片底部空隙 */
+        display: block;
       }
-
-      /* 4. 右侧文字部分的样式优化 */
       .exp-details {
         display: flex;
-        flex-direction: column; /* 让标题和时间上下排列，或者改为 row 左右排列 */
-        justify-content: center;
+        flex-direction: column;
+        gap: 4px;
+        min-width: 0;
+        overflow-wrap: anywhere;
       }
-
       .exp-details h3 {
-        margin: 0 0 5px 0;
-        font-size: 1.1rem;
+        margin: 0;
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: var(--text);
       }
-
-      .exp-details .exp-time {
-        color: #666;
+      .exp-time {
+        display: block;
+        color: var(--muted);
         font-size: 0.9rem;
+        font-family: JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, monospace;
+        line-height: 1.3;
       }
-
-      /* 移动端适配 */
-      @media (max-width: 600px) {
+      .exp-desc {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.95rem;
+        line-height: 1.5;
+      }
+      .exp-desc:empty { display: none; }
+      @media (max-width: 720px) {
         .exp-item {
-          flex-direction: column; /* 上下排列 */
-          align-items: flex-start; /* 左对齐 */
-          gap: 10px;
+          grid-template-columns: 1fr;
+          gap: 14px;
         }
-
-        /* --- 新增的核心修复代码 --- */
-        .exp-logo {
-          /* 1. 取消固定的 480px，改为自适应宽度 */
-          width: 100%; 
-          
-          /* 2. (可选) 限制最大宽度，防止 Logo 在手机上显得过大 */
-          max-width: 800px; 
-
-          /* 3. 因为变成了上下排列，Logo 靠左显示可能比居中更好看 */
-          justify-content: flex-start; 
+        .exp-logo { justify-content: flex-start; }
+        .exp-logo svg,
+        .exp-logo img {
+          max-width: 320px;
+          max-height: 80px;
         }
       }
 
@@ -411,29 +411,257 @@
         font-weight: bold;
       }
 
+
+      /* ===== Migrated visual and interaction features ===== */
+      [data-theme="dark"] {
+        --bg:#060912; --text:#e8f0ff; --muted:#8da0c4; --link:#38e1ff; --link-hover:#7df0ff;
+        --card:#0c1426; --border:#1c2c4a; --chip-bg:#10203c; --chip-text:#8fe6ff; --shadow:0 8px 30px rgba(0,0,0,.55);
+        --glow:#1bd3ff; --glow-2:#7c5cff;
+      }
+
+      /* 科幻深空背景：底色 + 顶部淡渐变（辉光交给动态星云层 .wvm-bg） */
+      [data-theme="dark"] body {
+        background:
+          linear-gradient(to bottom, color-mix(in oklab, var(--glow) 4%, transparent), transparent 40%),
+          var(--bg);
+        background-attachment: fixed;
+      }
+      [data-theme="dark"] body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: 0;
+        background-image:
+          linear-gradient(color-mix(in oklab, var(--glow) 6%, transparent) 1px, transparent 1px),
+          linear-gradient(90deg, color-mix(in oklab, var(--glow) 6%, transparent) 1px, transparent 1px);
+        background-size: 44px 44px;
+        -webkit-mask-image: radial-gradient(circle at 50% 0%, #000 0%, transparent 70%);
+        mask-image: radial-gradient(circle at 50% 0%, #000 0%, transparent 70%);
+        opacity: .4;
+      }
+
+      /* ========= 深空科幻背景：星云辉光 + 星点 + 神经星座网络 ========= */
+      .wvm-bg { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+      [data-theme="light"] .wvm-bg { display: none; }
+      .wvm-bg .neb { position: absolute; inset: -25%; filter: blur(70px) saturate(1.15); }
+      .wvm-bg .neb i { position: absolute; border-radius: 50%; mix-blend-mode: screen; opacity: .45; }
+      .wvm-bg .neb .n1 {
+        width: 58vw; height: 58vw; left: -6%; top: -14%;
+        background: radial-gradient(circle, color-mix(in oklab, var(--glow) 72%, transparent), transparent 65%);
+        animation: neb-drift-1 30s ease-in-out infinite alternate;
+      }
+      .wvm-bg .neb .n2 {
+        width: 52vw; height: 52vw; right: -10%; top: -8%;
+        background: radial-gradient(circle, color-mix(in oklab, var(--glow-2) 72%, transparent), transparent 65%);
+        animation: neb-drift-2 38s ease-in-out infinite alternate;
+      }
+      .wvm-bg .neb .n3 {
+        width: 48vw; height: 48vw; left: 32%; top: 8%;
+        background: radial-gradient(circle, color-mix(in oklab, #27e0c4 55%, transparent), transparent 65%);
+        opacity: .32;
+        animation: neb-drift-3 46s ease-in-out infinite alternate;
+      }
+      @keyframes neb-drift-1 { from { transform: translate3d(-4%, -2%, 0) scale(1);    } to { transform: translate3d(6%, 5%, 0) scale(1.15);  } }
+      @keyframes neb-drift-2 { from { transform: translate3d(3%, -3%, 0) scale(1.1);   } to { transform: translate3d(-5%, 6%, 0) scale(.95);  } }
+      @keyframes neb-drift-3 { from { transform: translate3d(-3%, 3%, 0) scale(1);     } to { transform: translate3d(4%, -5%, 0) scale(1.2);  } }
+      .wvm-bg .wvm-stars i {
+        position: absolute; border-radius: 50%;
+        background: #cfe8ff; box-shadow: 0 0 6px #7df0ff;
+        animation: wvm-twinkle var(--tw, 4s) ease-in-out var(--td, 0s) infinite;
+      }
+      @keyframes wvm-twinkle { 0%,100% { opacity: .15; transform: scale(.8); } 50% { opacity: 1; transform: scale(1.3); } }
+      .wvm-bg #wvm-bg-canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+      @media (prefers-reduced-motion: reduce) {
+        .wvm-bg .neb i, .wvm-bg .wvm-stars i { animation: none; }
+      }
+
+      [data-theme="dark"] .container { position: relative; z-index: 1; }
+      /* 研究兴趣关键词的艺术字效果 */
+      .keyword {
+        font-weight: 800;
+        font-size: 1.05em;
+        letter-spacing: 0.3px;
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        -webkit-text-fill-color: transparent;
+        background-size: 200% auto;
+        animation: keyword-shine 6s linear infinite;
+      }
+      .keyword.scalable {
+        background-image: linear-gradient(90deg, #059669 0%, #0891b2 40%, #2563eb 60%, #059669 100%);
+      }
+      .keyword.reliable {
+        background-image: linear-gradient(90deg, #7c3aed 0%, #ec4899 40%, #f59e0b 60%, #7c3aed 100%);
+      }
+      [data-theme="dark"] .keyword.scalable {
+        background-image: linear-gradient(90deg, #34d399 0%, #22d3ee 40%, #60a5fa 60%, #34d399 100%);
+      }
+      [data-theme="dark"] .keyword.reliable {
+        background-image: linear-gradient(90deg, #a78bfa 0%, #f472b6 40%, #fbbf24 60%, #a78bfa 100%);
+      }
+      @keyframes keyword-shine {
+        0%   { background-position: 0% center; }
+        100% { background-position: 200% center; }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .keyword { animation: none; }
+      }
+
+      /* ============================================================
+         POLISH: 学术专业 × 科幻个性 增强样式
+         ============================================================ */
+
+      /* --- A. 键盘可达性：统一聚焦环 --- */
+      a:focus-visible,
+      button:focus-visible,
+      .chip:focus-visible,
+      #load-more-container:focus-visible {
+        outline: 2px solid var(--link);
+        outline-offset: 3px;
+        border-radius: 6px;
+      }
+
+      /* --- A. 统一卡片交互：News 也加微抬升 --- */
+      .news li {
+        transition: transform .12s ease, box-shadow .12s ease, border-color .12s ease;
+      }
+      .news li:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow);
+      }
+
+      /* --- B. 强调色系统化：交互元素青色辉光（仅深色主题最明显） --- */
+      .chip {
+        transition: transform .14s ease, border-color .14s ease, box-shadow .14s ease, color .14s ease;
+      }
+      .chip:hover {
+        transform: translateY(-2px);
+        text-decoration: none;
+      }
+      [data-theme="dark"] .chip:hover {
+        border-color: var(--glow);
+        color: var(--link-hover);
+        box-shadow: 0 0 0 1px color-mix(in oklab, var(--glow) 50%, transparent),
+                    0 6px 22px color-mix(in oklab, var(--glow) 22%, transparent);
+      }
+      [data-theme="dark"] .project:hover,
+      [data-theme="dark"] .exp-item:hover,
+      [data-theme="dark"] .news li:hover {
+        border-color: color-mix(in oklab, var(--glow) 55%, var(--border));
+        box-shadow: 0 0 0 1px color-mix(in oklab, var(--glow) 28%, transparent),
+                    0 10px 30px color-mix(in oklab, var(--glow) 16%, transparent);
+      }
+      [data-theme="dark"] a:hover { text-shadow: 0 0 12px color-mix(in oklab, var(--glow) 55%, transparent); }
+
+      /* --- C. Section 标题 HUD 化：等宽编号 + 青色标记 --- */
+      .container { counter-reset: section-counter; }
+      section h2 {
+        display: flex;
+        align-items: baseline;
+        gap: 12px;
+      }
+      section h2::before {
+        counter-increment: section-counter;
+        content: counter(section-counter, decimal-leading-zero);
+        font: 700 14px/1 "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+        color: var(--link);
+        letter-spacing: 1px;
+        padding: 4px 8px;
+        border: 1px solid color-mix(in oklab, var(--link) 45%, var(--border));
+        border-radius: 8px;
+        background: color-mix(in oklab, var(--link) 10%, transparent);
+        flex-shrink: 0;
+        transform: translateY(-1px);
+      }
+      [data-theme="dark"] section h2::before {
+        box-shadow: 0 0 14px color-mix(in oklab, var(--glow) 30%, transparent);
+      }
+
+      /* --- D. 滚动入场动画 --- */
+      .reveal {
+        opacity: 0;
+        transform: translateY(18px);
+        transition: opacity .6s cubic-bezier(.22,.61,.36,1), transform .6s cubic-bezier(.22,.61,.36,1);
+        will-change: opacity, transform;
+      }
+      .reveal.is-visible {
+        opacity: 1;
+        transform: none;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .reveal { opacity: 1 !important; transform: none !important; transition: none; }
+      }
+
+      /* --- E. 英雄区点睛：大名字辉光 + 终端光标 --- */
+      [data-theme="dark"] .name {
+        text-shadow: 0 0 28px color-mix(in oklab, var(--glow) 28%, transparent);
+      }
+      .caret {
+        display: inline-block;
+        width: 9px;
+        height: 1.05em;
+        margin-left: 8px;
+        background: var(--link);
+        vertical-align: -0.16em;
+        animation: caret-blink 1.1s steps(1) infinite;
+      }
+      [data-theme="dark"] .caret { box-shadow: 0 0 10px color-mix(in oklab, var(--glow) 70%, transparent); }
+      @keyframes caret-blink {
+        0%, 50% { opacity: 1; }
+        50.01%, 100% { opacity: 0; }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .caret { animation: none; }
+      }
+
+
+      .theme-toggle .dot {
+        transition: transform .35s ease, background .25s ease;
+      }
+      .theme-toggle #theme-label { transition: transform .35s ease; }
+      [data-theme="dark"] .theme-toggle .dot { transform: none; }
+      .exp-item { transition: transform .12s ease, box-shadow .12s ease; }
+      .exp-item:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+      [data-theme="dark"] .exp-item:hover {
+        box-shadow: 0 0 0 1px color-mix(in oklab, var(--glow) 28%, transparent),
+                    0 10px 30px color-mix(in oklab, var(--glow) 16%, transparent);
+      }
+      .exp-details .exp-time { color: var(--muted); }
+      .arrow-icon { color: var(--link); }
+      #load-more-container { color: var(--link) !important; }
+      @media (prefers-reduced-motion: reduce) {
+        .project, .news li, .chip, .exp-item,
+        .theme-toggle .dot, .theme-toggle #theme-label { transition: none; }
+        .project:hover, .news li:hover, .chip:hover, .exp-item:hover { transform: none; }
+      }
+
     </style>
 
     <script>
       (function () {
-        const key = "theme-pref";
-        const pref = localStorage.getItem(key) || "auto";
-        const dark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
-        const resolved = pref === "auto" ? (dark ? "dark" : "light") : pref;
         const root = document.documentElement;
-        root.setAttribute("data-theme", resolved);
-        root.dataset.themeMode = pref;
+        root.setAttribute("data-theme", "dark");
+        root.dataset.themeMode = "dark";
       })();
     </script>
   </head>
 
   <body>
+    <div class="wvm-bg" aria-hidden="true">
+      <div class="neb"><i class="n1"></i><i class="n2"></i><i class="n3"></i></div>
+      <div class="wvm-stars" id="wvm-stars"></div>
+      <canvas id="wvm-bg-canvas"></canvas>
+    </div>
+
     <!-- Top bar -->
     <div class="topbar">
       <div class="topbar-inner">
         <div class="brand">Yifei Wang</div>
         <button class="theme-toggle" id="theme-toggle" aria-label="Toggle color theme" type="button">
           <span class="dot" aria-hidden="true"></span>
-          <span style="font-weight:600">Theme</span>
+          <span id="theme-label" style="font-weight:600">Dark</span>
         </button>
       </div>
     </div>
@@ -443,7 +671,7 @@
       <section class="hero">
         <div>
           <h1 class="name">Y1Fei Wang</h1>
-          <p class="roles">Embodied AI · Robotics</p>
+          <p class="roles">Embodied AI · Robotics<span class="caret" aria-hidden="true"></span></p>
 
           <div class="aff">
             <p>
@@ -458,7 +686,7 @@
               <span>Prior to that, I earned my B.Eng. degree in Intelligent Manufacturing Engineering from the Beijing Institute of Technology (<a href="https://www.bit.edu.cn/" target="_blank" rel="noopener noreferrer">BIT</a>).</span>
             </p>
             <p>
-              <span>My research interests focus on Embodied Intelligence and Robotics, including VLA, RL and CV.</span>
+              <span>My research interests focus on <span class="keyword reliable">Embodied Intelligence</span> and <span class="keyword scalable">Robotics</span>, including VLA, RL and CV.</span>
             </p>
           </div>
 
@@ -500,7 +728,8 @@
       <section id="experience">
         <h2>Experience</h2>
 
-        <div class="exp-item">
+        <div class="exp-list">
+          <div class="exp-item">
             <div class="exp-logo">
               <img 
                 src="images/zgca_logo.jpg" 
@@ -509,8 +738,10 @@
               />
             </div>
             <div class="exp-details">
-              <h3>Research Intern</h3>
+              <h3>HMI Lab, Zhongguancun Academy</h3>
               <span class="exp-time">2026.02 - Present</span>
+              <!-- 在 exp-desc 中填写职责或研究方向 -->
+              <p class="exp-desc">Research Intern - Interactive navigation</p>
             </div>
           </div>
 
@@ -523,10 +754,13 @@
               />
             </div>
             <div class="exp-details">
-              <h3>Campus Ambassador</h3>
+              <h3>Limx dynamix</h3>
               <span class="exp-time">2026.04 - Present</span>
+              <!-- 在 exp-desc 中填写职责或研究方向 -->
+              <p class="exp-desc">Campus Ambassador</p>
             </div>
           </div>
+        </div>
 
       </section>
 
@@ -607,6 +841,7 @@
               </div>
               <div class="links-row">
                 <a href="https://ieeexplore.ieee.org/document/11456427" target="_blank" rel="noopener noreferrer">paper</a>
+                <a href="https://github.com/YiFei632/OAT-UUV" target="_blank" rel="noopener noreferrer">code</a>
               </div>
               <p class="desc">A novel underwater vehicle with <b>orientation adjustable thrusters</b> and <b>adaptive tracking control</b> method.</p>
             </div>
@@ -684,14 +919,35 @@
     </script> -->
 
     <script>
-      // ===== 精简版主题切换（无缓存，默认白色） =====
+      // ===== Theme toggle: default dark, with animated state label =====
       const root = document.documentElement;
       const btn = document.getElementById("theme-toggle");
+      const themeLabel = document.getElementById("theme-label");
+      const themeDot = btn ? btn.querySelector(".dot") : null;
+      const THEME_GAP = 8; // 与 .theme-toggle 的 gap 保持一致
+
+      function updateDotPosition(mode) {
+        if (!themeDot || !themeLabel) return;
+        if (mode === "dark") {
+          const labelW = themeLabel.offsetWidth;
+          const dotW = themeDot.offsetWidth;
+          themeDot.style.transform = `translateX(${labelW + THEME_GAP}px)`;
+          themeLabel.style.transform = `translateX(${-(dotW + THEME_GAP)}px)`;
+        } else {
+          themeDot.style.transform = "translateX(0)";
+          themeLabel.style.transform = "translateX(0)";
+        }
+      }
 
       // 这里的 mode 仅为 'light' 或 'dark'，不再需要 auto 逻辑
       function apply(mode) {
         root.setAttribute("data-theme", mode);
         root.dataset.themeMode = mode;
+        if (themeLabel) {
+          themeLabel.textContent = mode === "dark" ? "Dark" : "Light";
+        }
+        // 下一帧测量并设置位移，避免文字宽度刚更新时尺寸未生效
+        requestAnimationFrame(() => updateDotPosition(mode));
       }
 
       function cycleTheme() {
@@ -701,8 +957,8 @@
         apply(next);
       }
 
-      // 1. 初始应用：直接设为白色，不读取缓存
-      apply("light");
+      // 1. 初始应用：直接设为深色，不读取缓存
+      apply("dark");
 
       // 2. 绑定点击事件
       btn.addEventListener("click", cycleTheme);
@@ -778,6 +1034,143 @@
           }
         });
       });
+    </script>
+
+    <script>
+      // ===== 滚动入场动画：进入视口时淡入上移 =====
+      document.addEventListener("DOMContentLoaded", function () {
+        const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        if (reduce || !("IntersectionObserver" in window)) return;
+
+        const sections = document.querySelectorAll("main.container > section:not(.hero)");
+        const targets = [];
+
+        sections.forEach(function (section) {
+          // Research 章节：每个工作作为最小入场单元，标题/简介/脚注各自单独入场
+          if (section.id === "research") {
+            section.querySelectorAll(":scope > h2, :scope > p, :scope > .projects > .project").forEach(function (el) {
+              targets.push(el);
+            });
+          } else {
+            targets.push(section);
+          }
+        });
+
+        targets.forEach(function (el) { el.classList.add("reveal"); });
+
+        const io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              io.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
+
+        targets.forEach(function (el) { io.observe(el); });
+      });
+    </script>
+
+    <script>
+      (function () {
+        const reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        const root = document.documentElement;
+
+        const starHost = document.getElementById("wvm-stars");
+        if (starHost && !starHost.childElementCount) {
+          const frag = document.createDocumentFragment();
+          const n = Math.min(Math.round((innerWidth * innerHeight) / 16000), 110);
+          for (let i = 0; i < n; i++) {
+            const s = (Math.random() * 1.8 + 0.8).toFixed(2);
+            const el = document.createElement("i");
+            el.style.cssText =
+              "left:" + (Math.random() * 100).toFixed(2) + "%;" +
+              "top:" + (Math.random() * 100).toFixed(2) + "%;" +
+              "width:" + s + "px;height:" + s + "px;" +
+              "--tw:" + (Math.random() * 4 + 2.5).toFixed(1) + "s;" +
+              "--td:" + (Math.random() * 5).toFixed(1) + "s;";
+            frag.appendChild(el);
+          }
+          starHost.appendChild(frag);
+        }
+
+        const canvas = document.getElementById("wvm-bg-canvas");
+        if (!canvas || reduce) return;
+        const ctx = canvas.getContext("2d");
+        if (!ctx) return;
+
+        let W, H, DPR, parts = [], raf = null, running = false;
+        const mouse = { x: -9999, y: -9999 };
+
+        function resize() {
+          DPR = Math.min(window.devicePixelRatio || 1, 2);
+          W = canvas.width = Math.floor(innerWidth * DPR);
+          H = canvas.height = Math.floor(innerHeight * DPR);
+        }
+        function initParticles() {
+          const count = Math.min(Math.round((innerWidth * innerHeight) / 15000), 130);
+          parts = Array.from({ length: count }, () => ({
+            x: Math.random() * W, y: Math.random() * H,
+            vx: (Math.random() - 0.5) * 0.22 * DPR,
+            vy: (Math.random() - 0.5) * 0.22 * DPR,
+            r: (Math.random() * 1.5 + 0.6) * DPR
+          }));
+        }
+        function frame() {
+          ctx.clearRect(0, 0, W, H);
+          const link = 130 * DPR, pull = 150 * DPR;
+          for (const p of parts) {
+            p.x += p.vx; p.y += p.vy;
+            if (p.x < 0 || p.x > W) p.vx *= -1;
+            if (p.y < 0 || p.y > H) p.vy *= -1;
+            const dx = p.x - mouse.x, dy = p.y - mouse.y, d = Math.hypot(dx, dy);
+            if (d < pull && d > 0.01) { p.x += (dx / d) * 0.5 * DPR; p.y += (dy / d) * 0.5 * DPR; }
+          }
+          for (let i = 0; i < parts.length; i++) {
+            for (let j = i + 1; j < parts.length; j++) {
+              const a = parts[i], b = parts[j];
+              const dx = a.x - b.x, dy = a.y - b.y, d = Math.hypot(dx, dy);
+              if (d < link) {
+                const t = 1 - d / link;
+                ctx.strokeStyle = "rgba(27,211,255," + (t * 0.32).toFixed(3) + ")";
+                ctx.lineWidth = DPR * 0.6;
+                ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
+              }
+            }
+          }
+          ctx.shadowColor = "rgba(27,211,255,.9)";
+          ctx.shadowBlur = 7 * DPR;
+          ctx.fillStyle = "rgba(125,240,255,.85)";
+          for (const p of parts) {
+            ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, 6.2832); ctx.fill();
+          }
+          ctx.shadowBlur = 0;
+          raf = requestAnimationFrame(frame);
+        }
+        function start() {
+          if (running) return;
+          running = true; resize(); initParticles(); frame();
+        }
+        function stop() {
+          running = false;
+          if (raf) { cancelAnimationFrame(raf); raf = null; }
+          if (ctx && W) ctx.clearRect(0, 0, W, H);
+        }
+        function isDark() { return (root.getAttribute("data-theme") || "dark") !== "light"; }
+        function sync() { (isDark() && !document.hidden) ? start() : stop(); }
+
+        let rt;
+        window.addEventListener("resize", () => {
+          clearTimeout(rt);
+          rt = setTimeout(() => { if (running) { resize(); initParticles(); } }, 200);
+        });
+        window.addEventListener("mousemove", (e) => { mouse.x = e.clientX * DPR; mouse.y = e.clientY * DPR; }, { passive: true });
+        window.addEventListener("mouseout", () => { mouse.x = mouse.y = -9999; });
+        document.addEventListener("visibilitychange", sync);
+        new MutationObserver(sync).observe(root, { attributes: true, attributeFilter: ["data-theme"] });
+
+        sync();
+      })();
     </script>
 
   </body>
